@@ -5,7 +5,7 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QVBoxLayout>
-
+#include "ssh_conn.h"
 class MainWindow: public QMainWindow {
     Q_OBJECT
 public:

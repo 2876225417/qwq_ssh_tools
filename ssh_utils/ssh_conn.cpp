@@ -37,7 +37,7 @@ namespace ssh_utils {
             std::cout << "User authenticate failed!\n";   
             return false;
         }
-        std::cout << "Authenticate successfully!";
+        std::cout << "Authenticate successfully!\n";
         return true;
     }
 

@@ -8,7 +8,11 @@
 namespace ssh_utils {
 
     class ssh_exception: public std::exception {
-        
+        ssh_exception() = default;
+        ~ssh_exception() noexcept override ;
+
+        const char* what() const noexcept override;
+
     };
 }
 #endif

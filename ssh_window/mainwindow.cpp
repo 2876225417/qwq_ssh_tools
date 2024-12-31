@@ -11,8 +11,8 @@ MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent) {
     central_widget = new QWidget(this);
     setCentralWidget(central_widget);
-    
 
+    
     layout = new QVBoxLayout(central_widget);
     label = new QLabel("Hello Qt6!", this);
     layout->addWidget(label);
