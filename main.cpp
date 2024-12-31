@@ -11,6 +11,8 @@ int main() {
     fmt::print("\033[31mHello, World in Red!\033[0m\n");
 
     ssh_utils::ssh_conn ssh_conn_;
+    ssh_conn_.set_ssh_options("199.7.140.50", 22, "root");
+    ssh_conn_.check_conn();
 
     // ssh_session session;
     // ssh_channel channel;
