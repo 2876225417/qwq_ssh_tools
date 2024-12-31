@@ -1,30 +1,30 @@
-// mainwindow.cpp
+
+
+
 #include "mainwindow.h"
+#include <qboxlayout.h>
+#include <qlayout.h>
+#include <qpushbutton.h>
+#include <qwidget.h>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-{
-    // Setup UI components (buttons, labels, etc.)
-    centralWidget = new QWidget(this);
-    setCentralWidget(centralWidget);
+MainWindow::MainWindow(QWidget* parent)
+    : QMainWindow(parent) {
+    central_widget = new QWidget(this);
+    setCentralWidget(central_widget);
+    
 
-    layout = new QVBoxLayout(centralWidget);
-    label = new QLabel("Hello, Qt6!", this);
+    layout = new QVBoxLayout(central_widget);
+    label = new QLabel("Hello Qt6!", this);
     layout->addWidget(label);
-    
-    button = new QPushButton("Click me", this);
+
+    button = new QPushButton("Click", this);
     layout->addWidget(button);
-    
-    // Add button click event
     connect(button, &QPushButton::clicked, [this]() {
-        label->setText("You clicked the button!");
+        label->setText("Clicked!");
     });
 
-    setWindowTitle("SSH Tools Main Window");
-    resize(400, 300);
+    setWindowTitle("SSH Tools");
+    resize(800, 600);
 }
 
-MainWindow::~MainWindow()
-{
-    // Destructor code (optional for cleanup)
-}
+MainWindow::~MainWindow(){} 

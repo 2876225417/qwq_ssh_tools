@@ -1,25 +1,21 @@
-// mainwindow.h
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MAINWINDOW_H_
+#define MAINWINDOW_H_
 
 #include <QMainWindow>
 #include <QPushButton>
 #include <QLabel>
 #include <QVBoxLayout>
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT  // Make sure this macro is here
-
+class MainWindow: public QMainWindow {
+    Q_OBJECT
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget* parent=nullptr);
     ~MainWindow();
-
 private:
-    QWidget *centralWidget;
-    QVBoxLayout *layout;
-    QLabel *label;
-    QPushButton *button;
-};
+    QWidget* central_widget;
+    QVBoxLayout* layout;
+    QLabel* label;
+    QPushButton* button;
 
-#endif // MAINWINDOW_H
+};
+#endif  // MAINWINDOW_H_
