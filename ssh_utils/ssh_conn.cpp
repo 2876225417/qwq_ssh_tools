@@ -23,10 +23,10 @@ namespace ssh_utils {
     bool ssh_conn::check_conn() {
         m_rc = ssh_connect(m_session);
         if (m_rc != SSH_OK) { 
-            std::cout << "connect failed.\n";
+            std::cout << "connect failed." << std::endl;
             return false;
         }
-        std::cout << "connect successfully!\n";
+        std::cout << "connect successfully!" << std::endl;
         return true;
     }   
 
@@ -34,10 +34,10 @@ namespace ssh_utils {
     bool ssh_conn::check_user(const char* pwd) {
         m_rc = ssh_userauth_password(m_session, nullptr, pwd);
         if (m_rc != SSH_AUTH_SUCCESS) { 
-            std::cout << "User authenticate failed!\n";   
+            std::cout << "User authenticate failed!" << std::endl;   
             return false;
         }
-        std::cout << "Authenticate successfully!\n";
+        std::cout << "Authenticate successfully!" << std::endl;
         return true;
     }
 
@@ -45,10 +45,10 @@ namespace ssh_utils {
     bool ssh_conn::open_channel() {
         m_channel = ssh_channel_new(m_session);
         if (m_channel == nullptr) {
-            std::cout << "Open channel failed!\n"; 
+            std::cout << "Open channel failed!" << std::endl; 
             return false;
         }
-        std::cout << "Open channel successfully!\n";
+        std::cout << "Open channel successfully!" << std::endl;
         return true;
     }
 
@@ -56,20 +56,20 @@ namespace ssh_utils {
     bool ssh_conn::open_session() {
         m_rc = ssh_channel_open_session(m_channel);
         if (m_rc != SSH_OK) {
-            std::cout << "Open session failed!\n"; 
+            std::cout << "Open session failed!" << std::endl; 
             return false;
         }
-        std::cout << "Open Session successfully!\n";
+        std::cout << "Open Session successfully!" << std::endl;
         return true;
     }
 
-    bool ssh_conn::exec_cmd() {
-        m_rc = ssh_channel_request_exec(m_channel, "ls -l");
+    bool ssh_conn::exec_cmd(const char* cmd) {
+        m_rc = ssh_channel_request_exec(m_channel, cmd);
         if (m_rc != SSH_OK)  {
-            std::cout << "Execute command failed.\n";   
+            std::cout << "Execute command failed." << std::endl;   
             return false;
         }
-        std::cout << "Execute command successfully!";
+        std::cout << "Execute command successfully!" << std::endl;
         return true;
     } 
 }

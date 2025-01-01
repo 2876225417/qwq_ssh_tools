@@ -16,13 +16,12 @@ if(NOT LIBSSH_INCLUDE_DIRS OR NOT LIBSSH_LIBRARIES)
     message(FATAL_ERROR "libssh library not found!")
 
 endif()
-
-
+ 
+ 
 add_subdirectory(ssh_utils)
 add_subdirectory(ssh_window)
 add_executable(ssh_tools
     main.cpp 
-    ssh_window/mainwindow.cpp
 )
 
 message(STATUS "LIBSSH_INCLUDE_DIS: ${LIBSSH_INCLUDE_DIRS}")

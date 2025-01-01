@@ -2,20 +2,18 @@
 #define MAINWINDOW_H_
 
 #include <QMainWindow>
-#include <QPushButton>
-#include <QLabel>
-#include <QVBoxLayout>
-#include "ssh_conn.h"
+
+#include "ssh_config_panel.h"
+#include "ssh_cmd_panel.h"
+
 class MainWindow: public QMainWindow {
     Q_OBJECT
 public:
     explicit MainWindow(QWidget* parent=nullptr);
     ~MainWindow();
 private:
-    QWidget* central_widget;
-    QVBoxLayout* layout;
-    QLabel* label;
-    QPushButton* button;
+    SSHConfigPanel* ssh_config_panel;
+    SSHCMDPanel* ssh_cmd_panel;
 
 };
 #endif  // MAINWINDOW_H_

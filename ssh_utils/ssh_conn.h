@@ -3,6 +3,8 @@
 
 #include <libssh/libssh.h>
 #include <iostream>
+#include <fmt/core.h>
+
 
 namespace ssh_utils {
     
@@ -15,7 +17,7 @@ namespace ssh_utils {
         bool check_user(const char* pwd);
         bool open_channel();
         bool open_session();
-        bool exec_cmd();
+        bool exec_cmd(const char*);
 
     private:
         ssh_session m_session;

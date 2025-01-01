@@ -2,29 +2,23 @@
 
 
 #include "mainwindow.h"
-#include <qboxlayout.h>
-#include <qlayout.h>
-#include <qpushbutton.h>
-#include <qwidget.h>
+#include "ssh_cmd_panel.h"
+#include <qnamespace.h>
+#include <qsplitter.h>
+#include <qwindowdefs.h>
 
 MainWindow::MainWindow(QWidget* parent)
-    : QMainWindow(parent) {
-    central_widget = new QWidget(this);
-    setCentralWidget(central_widget);
-
+    : QMainWindow(parent)
+    , ssh_config_panel(new SSHConfigPanel(this))
+    , ssh_cmd_panel(new SSHCMDPanel(this))
+    {
+    QSplitter* splitter = new QSplitter(Qt::Horizontal, this);
     
-    layout = new QVBoxLayout(central_widget);
-    label = new QLabel("Hello Qt6!", this);
-    layout->addWidget(label);
+    splitter->addWidget(ssh_config_panel);
+    splitter->addWidget(ssh_cmd_panel);
 
-    button = new QPushButton("Click", this);
-    layout->addWidget(button);
-    connect(button, &QPushButton::clicked, [this]() {
-        label->setText("Clicked!");
-    });
-
-    setWindowTitle("SSH Tools");
-    resize(800, 600);
+    setCentralWidget(splitter);
+    
 }
 
 MainWindow::~MainWindow(){} 
